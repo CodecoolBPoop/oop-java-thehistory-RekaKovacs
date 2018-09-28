@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.regex.Pattern;
 
 public class TheHistoryLinkedList implements TheHistory {
     /**
@@ -14,6 +15,7 @@ public class TheHistoryLinkedList implements TheHistory {
     @Override
     public void add(String text) {
         //TODO: check the TheHistory interface for more information
+        wordsLinkedList.add(text);
     }
 
     @Override
@@ -24,7 +26,9 @@ public class TheHistoryLinkedList implements TheHistory {
     @Override
     public int size() {
         //TODO: check the TheHistory interface for more information
-        return 0;
+        String[] words;
+        words = Pattern.compile("\\s+").split(wordsLinkedList.get(0));
+        return words.length;
     }
 
     @Override

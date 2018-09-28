@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.regex.Pattern;
 
 public class TheHistoryArrayList implements TheHistory {
     /**
@@ -14,6 +15,7 @@ public class TheHistoryArrayList implements TheHistory {
     @Override
     public void add(String text) {
         //TODO: check the TheHistory interface for more information
+        wordsArrayList.add(text);
     }
 
     @Override
@@ -24,12 +26,15 @@ public class TheHistoryArrayList implements TheHistory {
     @Override
     public int size() {
         //TODO: check the TheHistory interface for more information
-        return 0;
+        String[] words;
+        words = Pattern.compile("\\s+").split(wordsArrayList.get(0));
+        return words.length;
     }
 
     @Override
     public void clear() {
         //TODO: check the TheHistory interface for more information
+        wordsArrayList.clear();
     }
 
     @Override
