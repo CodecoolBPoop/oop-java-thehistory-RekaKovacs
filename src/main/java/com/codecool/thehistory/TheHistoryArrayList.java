@@ -15,20 +15,25 @@ public class TheHistoryArrayList implements TheHistory {
     @Override
     public void add(String text) {
         //TODO: check the TheHistory interface for more information
-        wordsArrayList.add(text);
+        String[] words;
+        words = Pattern.compile("\\s+").split(text);
+        for (int i = 0; i < words.length; i++) {
+            wordsArrayList.add(words[i]);
+        }
     }
 
     @Override
     public void removeWord(String wordToBeRemoved) {
         //TODO: check the TheHistory interface for more information
+        do {
+            wordsArrayList.remove(wordToBeRemoved);
+        } while (wordsArrayList.contains(wordToBeRemoved));
     }
 
     @Override
     public int size() {
         //TODO: check the TheHistory interface for more information
-        String[] words;
-        words = Pattern.compile("\\s+").split(wordsArrayList.get(0));
-        return words.length;
+        return wordsArrayList.size();
     }
 
     @Override
